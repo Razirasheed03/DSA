@@ -10,32 +10,32 @@ class LinkedList {
     this.tail=null;
   }
 
-// insert(data,index){
-//   if(index<0){
-//     console.log('invalid index')
-//   }else if(index===0){
-//     this.shaheer(nd)
-//   }else{
-//     const newNode=new Node(data)
-//     let curr=this.head
-//     for(let i=0;i<index-1;i++){
-//       curr=curr.next
-//     }
-//     newNode.next=curr.next;
-//     curr.next=newNode
-//   }
+insert(data,index){
+  if(index<0){
+    console.log('invalid index')
+  }else if(index===0){
+    this.shaheer(nd)
+  }else{
+    const newNode=new Node(data)
+    let curr=this.head
+    for(let i=0;i<index-1;i++){
+      curr=curr.next
+    }
+    newNode.next=curr.next;
+    curr.next=newNode
+  }
 
-// }
+}
 
-// midOf(){
-//   let slow = this.head;
-//   let fast = this.head;
-//   while(fast && fast.next){
-//     slow = slow.next;
-//     fast = fast.next.next;
-//   }
-//   return slow.value;
-// }
+midOf(){
+  let slow = this.head;
+  let fast = this.head;
+  while(fast && fast.next){
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow.value;
+}
 
 addtoBack(data){
   const newNode=new Node(data)
@@ -68,22 +68,22 @@ append(data){
 
 
 
-// insert(data,index){
-//   if(index<0){
-//     console.log('invalid')
-//   }else if(index===0){
-//     this.append(data)
-//   }
-//   else{
-//     const newNode=new Node(data)
-//     let curr=this.head;
-//     for(let i=0;i<index-1;i++){
-//       curr=curr.next
-//     }
-//     newNode.next=curr.next
-//     curr.next=newNode
-//   }
-// }
+insert(data,index){
+  if(index<0){
+    console.log('invalid')
+  }else if(index===0){
+    this.append(data)
+  }
+  else{
+    const newNode=new Node(data)
+    let curr=this.head;
+    for(let i=0;i<index-1;i++){
+      curr=curr.next
+    }
+    newNode.next=curr.next
+    curr.next=newNode
+  }
+}
 
 
 
