@@ -99,6 +99,18 @@ removeFrom(index) {
   this.size--;
   return removeNode.value;
 }
+reverse() {
+  let prev = null;
+  let curr = this.head;
+  while (curr) {
+    let next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+  this.head = prev;
+}
+
 
 
 
@@ -116,6 +128,7 @@ removeFrom(index) {
     }
   }
 }
+
 
 
 const list = new LinkedList();
@@ -155,15 +168,4 @@ list.print();
 //   return -1;
 // }
 
-// reverse() {
-//   let prev = null;
-//   let curr = this.head;
-//   while (curr) {
-//     let next = curr.next;
-//     curr.next = prev;
-//     prev = curr;
-//     curr = next;
-//   }
-//   this.head = prev;
-// }
 
