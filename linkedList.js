@@ -80,6 +80,25 @@ insert(data,index){
   }
 }
 
+removeFrom(index) {
+  if (index < 0 || index > this.size) {
+    return console.log("invalid index");
+  }
+  let removeNode;
+  if (index === 0) {
+    removeNode = this.head;
+    this.head = this.head.next;
+  } else {
+    let prev = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      prev = prev.next;
+    }
+    removeNode = prev.next;
+    prev.next = removeNode.next;ƒ
+  }
+  this.size--;
+  return removeNode.value;
+}
 
 
 
@@ -114,69 +133,11 @@ const list = new LinkedList();
 // list.insert(3,0)
 // list.insert(5,5)
 // console.log(list.midOf())
-// list.shaheer('new');
 // console.log(list.reverse());
 list.print();
 
 
-// insert(value, index) {
-//   if (index < 0 || index > this.size) {
-//     return console.log("enter a valid index");
-//   }
-//   if (index === 0) {
-//     this.prepend(value);
-//   } else {
-//     const node = new Node(value);
-//     let curr = this.head;
-//     for (let i = 0; i < index - 1; i++) {
-//       curr = curr.next;
-//     }
-//     node.next = curr.next;
-//     curr.next = node;
-//     this.size++;
-//   }
-// }
 
-// removeFrom(index) {
-//   if (index < 0 || index > this.size) {
-//     return console.log("invalid index");
-//   }
-//   let removeNode;
-//   if (index === 0) {
-//     removeNode = this.head;
-//     this.head = this.head.next;
-//   } else {
-//     let prev = this.head;
-//     for (let i = 0; i < index - 1; i++) {
-//       prev = prev.next;
-//     }
-//     removeNode = prev.next;
-//     prev.next = removeNode.next;ƒ
-//   }
-//   this.size--;
-//   return removeNode.value;
-// }
-
-// removeValue(value) {
-//   if (this.head===null) {
-//     return null;
-//   }
-//   if (this.head.value === value) {
-//     this.head = this.head.next;
-//     return value;
-//   } else {
-//     let prev = this.head;
-//     while (prev.next && prev.next.value !== value) {
-//       prev = prev.next;
-//     }
-//     if (prev.next) {
-//       removedNode = prev.next;
-//       prev.next = removedNode.next;
-//       return value;
-//     }
-//     return null;
-//   }
-// }
 
 // search(value) {
 //   if (this.isEmpty()) {
