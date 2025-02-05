@@ -50,8 +50,6 @@ addtoBack(data){
 }
 }
 
-
-
 append(data){
   const node=new Node(data)
   if(this.head===null){
@@ -64,9 +62,6 @@ append(data){
     curr.next=node
   }
 }
-
-
-
 
 insert(data,index){
   if(index<0){
