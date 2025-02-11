@@ -127,10 +127,6 @@ search(value) {
   return -1;
 }
 
-
-
-
-
   print() {
     if (this.head===null) {
       console.log("list is empty");
@@ -149,21 +145,21 @@ search(value) {
 
 
 const list = new LinkedList();
-// list.insert(1,0)
-// list.insert(2,1)
-// list.insert(3,0)
-// list.addtoBack('last')
-// list.addtoBack('newLast')
-// list.midOf()
+list.insert(1,0)
+list.insert(2,1)
+list.insert(3,0)
+list.addtoBack('last')
+list.addtoBack('newLast')
+list.midOf()
 
 
-// list.insert(0,0)
-// list.insert(1,0)
-// list.insert(2,0)
-// list.insert(3,0)
-// list.insert(5,5)
-// console.log(list.midOf())
-// console.log(list.reverse());
+list.insert(0,0)
+list.insert(1,0)
+list.insert(2,0)
+list.insert(3,0)
+list.insert(5,5)
+console.log(list.midOf())
+console.log(list.reverse());
 list.print();
 
 
