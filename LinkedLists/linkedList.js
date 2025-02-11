@@ -156,7 +156,7 @@ list.midOf()
 list.insert(0,0)
 list.insert(1,0)
 list.insert(2,0)
-list.insert(3,0)
+list.insert(4,0)
 list.insert(5,5)
 console.log(list.midOf())
 console.log(list.reverse());
