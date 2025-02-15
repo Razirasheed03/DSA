@@ -57,9 +57,32 @@ class Node{
     }
     
     
-    const stack=new Stack()
-    stack.push(10)
-    stack.push(20)
-    stack.pop()
-    stack.display()
+    // const stack=new Stack()
+    // stack.push(10)
+    // stack.push(20)
+    // stack.pop()
+    // stack.display()
     
+///=======stack using queue=========///
+class StackUsingQueue{
+    constructor(){
+        this.queue=[];
+        this.tempQueue=[]
+    }
+    push(element){
+        this.tempQueue.push(element)
+
+        while(this.queue.length>0){
+            this.tempQueue.push(this.queue.shift())
+        }
+        [this.queue,this.tempQueue]=[this.tempQueue,this.queue]
+    }
+    print(){
+        console.log(this.queue1.join(' '))
+    }
+}
+// const stack=new StackUsingQueue()
+// stack.push(1)
+// stack.push(2)
+// stack.push(3)
+// stack.print()
