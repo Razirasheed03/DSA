@@ -103,6 +103,19 @@ class HashTable {
     }
     return allValue;
   }
+  rehash(){
+    this.count=0;
+    let oldTable=this.table
+    this.table=new Array(this.table.length*2)
+    for(let bucket of oldTable){
+        if(bucket){
+            for(let [key,value] of bucket){
+                this.set(key,value)
+            }
+        }
+    }
+
+}
 
   print() {
     for (let i = 0; i < this.bucket.length; i++) {
