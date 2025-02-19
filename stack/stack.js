@@ -23,7 +23,7 @@ console.log(stacknew.peek())
 stacknew.printStack()
 
 
-/////////stack using linked list
+/////////============stack using linked list================////////////
 class Node{
     constructor(value){
         this.value=value;
