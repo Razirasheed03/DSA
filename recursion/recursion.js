@@ -34,7 +34,7 @@ function recursiveBinarySearch(array, target) {
   console.log(recursiveBinarySearch([-5, 2, 4, 6, 10], 20));
   
 
-  ////====recursive fibinocci======////////
+  ////====recursive fibinocci======/////
   
   function recFeb(n) {
     if (n < 2) {
