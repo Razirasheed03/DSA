@@ -44,3 +44,11 @@ function recursiveBinarySearch(array, target) {
   }
   console.log(recFeb(8));
   
+
+  ///////===========string reverse using recursion=========////////////
+
+function reverseStr(str){
+  if(str==='')return ''
+  return reverseStr(str.slice(1))+str[0]
+}
+console.log(reverseStr('hello'))
