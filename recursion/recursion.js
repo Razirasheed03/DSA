@@ -52,3 +52,15 @@ function reverseStr(str){
   return reverseStr(str.slice(1))+str[0]
 }
 console.log(reverseStr('hello'))
+
+
+//////////=========sum of array using recursion ============////////
+
+function recSum(arr){
+  if(arr.length){
+    return arr[0]*recSum(arr.slice(1))
+  }else{
+    return 1
+  }
+}
+console.log(recSum([1,2,3,4,5]))
