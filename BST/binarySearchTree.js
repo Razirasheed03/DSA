@@ -33,6 +33,27 @@ class bst {
             }
         }
     }
+    preOder(root) {
+        if (root !== null) {
+            console.log(root.value)
+            this.preOder(root.left)
+            this.preOder(root.right)
+        }
+    }
+    inOrder(root) {
+        if (root !== null) {
+            this.inOrder(root.left)
+            console.log(root.value)
+            this.inOrder(root.right)
+        }
+    }
+    postOrder(root) {
+        if (root !== null) {
+            this.postOrder(root.left)
+            this.postOrder(root.right)
+            console.log(root.value)
+        }
+    }
 }
 const bist = new bst()
 bist.insert(10)
