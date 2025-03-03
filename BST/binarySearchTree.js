@@ -33,6 +33,43 @@ class bst {
             }
         }
     }
+    delete(value) {
+        this.root = this.deleteNode(this.root, value);
+    }
+    min(root) {
+        if (!root.left) {
+            return root.value;
+        } else {
+            return this.min(root.left)
+        }
+    }
+
+    deleteNode(root, value) {
+        if (!root) {
+            return root
+        }
+        if (value < root.value) {
+            root.left = this.deleteNode(root.left, value)
+        } else if (value > root.value) {
+            root.right = this.deleteNode(root.right, value)
+        } else {
+            if (!root) {
+                return root
+            }
+            if (!root.left && !root.right) {
+                return null
+            } else {
+                if (!root.left) {
+                    return root.right
+                } else if (!root.right) {
+                    return root.left
+                }
+                root.value = this.min(root.right, value)
+                root.right = this.deleteNode(root.right, root.value)
+            }
+        }
+        return root
+    }
     levelOrder() {
         const queue = [];
         queue.push(this.root);
