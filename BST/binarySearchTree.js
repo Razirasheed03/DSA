@@ -70,6 +70,19 @@ class bst {
         }
         return root
     }
+    search(root, value) {
+        if (!root) {
+            return false;
+        } else {
+            if (root.value === value) {
+                return true;
+            } else if (root.value > value) {
+                return this.search(root.left, value);
+            } else {
+                return this.search(root.right, value);
+            }
+        }
+    }
     levelOrder() {
         const queue = [];
         queue.push(this.root);
