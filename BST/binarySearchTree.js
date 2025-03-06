@@ -83,6 +83,16 @@ class bst {
             }
         }
     }
+
+    isBST(root, min = -Infinity, max = Infinity) {
+        if (!root) {
+            return true;
+        }
+        if (root.value >= max || root.value <= min) {
+            return false;
+        }
+        return (this.isBST(root.left, min, root.value) && this.isBST(root.right, root.value))
+    }
     levelOrder() {
         const queue = [];
         queue.push(this.root);
