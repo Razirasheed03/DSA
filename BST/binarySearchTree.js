@@ -93,6 +93,25 @@ class bst {
         }
         return (this.isBST(root.left, min, root.value) && this.isBST(root.right, root.value))
     }
+
+    findClosest(target) {
+        let curr = this.root;
+        let closest = this.root.value;
+        while (curr) {
+            if (Math.abs(target - curr.value) < Math.abs(target - closest)) {
+                closest = curr.value;
+            }
+            if (target < curr.value) {
+                curr = curr.left;
+            } else if (target > curr.value) {
+                curr = curr.right;
+            } else {
+                return
+            }
+        }
+        return closest;
+    }
+    
     levelOrder() {
         const queue = [];
         queue.push(this.root);
