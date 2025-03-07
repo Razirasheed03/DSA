@@ -112,6 +112,23 @@ class bst {
         return closest;
     }
     
+    findSecondLarget(){
+        let count=0
+        let secondLargest=null
+        function reverseTraversal(root){
+            if(!root||count>=2) return
+            reverseTraversal(root.right)
+            count++
+            if(count===2){
+                secondLargest=root.value
+                return
+            }
+            reverseTraversal(root.left)
+        }
+        reverseTraversal(this.root)
+        return secondLargest
+    }
+    
     levelOrder() {
         const queue = [];
         queue.push(this.root);
