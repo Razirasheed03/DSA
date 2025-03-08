@@ -5,8 +5,9 @@ class Node {
         this.right = null
     }
 }
+
 class bst {
-    constructor() { 
+    constructor() {
         this.root = null
     }
     insert(value) {
@@ -24,7 +25,6 @@ class bst {
             } else {
                 this.insertNode(root.left, newNode)
             }
-
         } else {
             if (root.right === null) {
                 root.right = newNode
@@ -33,6 +33,7 @@ class bst {
             }
         }
     }
+
     delete(value) {
         this.root = this.deleteNode(this.root, value);
     }
@@ -43,7 +44,6 @@ class bst {
             return this.min(root.left)
         }
     }
-
     deleteNode(root, value) {
         if (!root) {
             return root
@@ -111,16 +111,16 @@ class bst {
         }
         return closest;
     }
-    
-    findSecondLarget(){
-        let count=0
-        let secondLargest=null
-        function reverseTraversal(root){
-            if(!root||count>=2) return
+
+    findSecondLarget() {
+        let count = 0
+        let secondLargest = null
+        function reverseTraversal(root) {
+            if (!root || count >= 2) return
             reverseTraversal(root.right)
             count++
-            if(count===2){
-                secondLargest=root.value
+            if (count === 2) {
+                secondLargest = root.value
                 return
             }
             reverseTraversal(root.left)
@@ -128,7 +128,7 @@ class bst {
         reverseTraversal(this.root)
         return secondLargest
     }
-    
+
     levelOrder() {
         const queue = [];
         queue.push(this.root);
