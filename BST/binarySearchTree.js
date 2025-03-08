@@ -129,6 +129,19 @@ class bst {
         return secondLargest
     }
 
+    isSameTree(root1, root2){
+        if(!root1 && !root2){
+            return true;
+        }
+        if(!root1 || !root2){
+            return false;
+        }
+        if(root1.value !== root2.value){
+            return false;
+        }
+        return this.isSameTree(root1.left, root2.left) && this.isSameTree(root1.right, root2.right);
+    }
+
     levelOrder() {
         const queue = [];
         queue.push(this.root);
