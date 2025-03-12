@@ -18,6 +18,16 @@ class Trie{
         }
         node.endOfWord=true
     }
+    prefix(word){
+        let node=this.root
+        for(let char of word){
+            if(!(char in node.children)){
+                return false
+            }
+            node=node.children[char]
+        }
+        return true
+    }
 }
 const trie=new Trie()
 trie.insert('Apple')
