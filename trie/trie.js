@@ -40,6 +40,16 @@ class Trie{
         }
         return prefix;
     }
+    search(word){
+        let node=this.root
+        for(let char of word){
+            if(!(char in node.children)){
+                return false
+            }
+            node=node.children[char]
+        }
+        return node.endOfWord
+    }
 }
 const trie=new Trie()
 trie.insert('Apple')
