@@ -28,6 +28,18 @@ class Trie{
         }
         return true
     }
+    findLongestCommonPrefix() {
+        let prefix = "";
+        let node = this.root;
+        while (node) {
+            let keys = Object.keys(node.children);
+            if (keys.length !== 1 || node.isEndOfWord) break;
+            let nextChar = keys[0];
+            prefix += nextChar;
+            node = node.children[nextChar];
+        }
+        return prefix;
+    }
 }
 const trie=new Trie()
 trie.insert('Apple')
