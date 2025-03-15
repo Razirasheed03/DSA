@@ -50,6 +50,27 @@ class Trie{
         }
         return node.endOfWord
     }
+
+    autoComplete(prefix){
+        let node=this.root
+        for(let char of prefix){
+            if(!(char in node.children)){
+                return false
+            }
+            node=node.children[char]
+        }
+        let words=[]
+        this.dfs(node,prefix,words)
+        return words
+       }
+       dfs(node,prefix,words){
+        if(node.endOfWord){
+            words.push(prefix)
+        }
+        for(let char in node.children){
+            this.dfs(node.children[char],prefix+char,words)
+        }
+       }
 }
 const trie=new Trie()
 trie.insert('Apple')
