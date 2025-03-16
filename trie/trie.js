@@ -71,6 +71,20 @@ class Trie{
             this.dfs(node.children[char],prefix+char,words)
         }
        }
+
+       countWord(){
+        return this.helper(this.root)
+    }
+    helper(node){
+        let count=0
+        if(node.endOfWord){
+            count++
+        }
+        for(let char in node.children){
+            count+=this.helper(node.children[char])
+        }
+        return count
+    }
 }
 const trie=new Trie()
 trie.insert('Apple')
