@@ -1,33 +1,35 @@
-class TrieNode{
-    constructor(){
-        this.children={}
-        this.endOfWord=false
+class TrieNode {
+    constructor() {
+        this.children = {}
+        this.endOfWord = false
     }
 }
-class Trie{
-    constructor(){
-        this.root=new TrieNode()
+class Trie {
+    constructor() {
+        this.root = new TrieNode()
     }
-    insert(word){
-        let node=this.root
-        for(let char of word){
-            if(!node.children[char]){
-                node.children[char]=new TrieNode()
+    insert(word) {
+        let node = this.root
+        for (let char of word) {
+            if (!node.children[char]) {
+                node.children[char] = new TrieNode()
             }
-            node=node.children[char]
+            node = node.children[char]
         }
-        node.endOfWord=true
+        node.endOfWord = true
     }
-    prefix(word){
-        let node=this.root
-        for(let char of word){
-            if(!(char in node.children)){
+
+    prefix(word) {
+        let node = this.root
+        for (let char of word) {
+            if (!(char in node.children)) {
                 return false
             }
-            node=node.children[char]
+            node = node.children[char]
         }
         return true
     }
+
     findLongestCommonPrefix() {
         let prefix = "";
         let node = this.root;
@@ -40,53 +42,57 @@ class Trie{
         }
         return prefix;
     }
-    search(word){
-        let node=this.root
-        for(let char of word){
-            if(!(char in node.children)){
+
+    search(word) {
+        let node = this.root
+        for (let char of word) {
+            if (!(char in node.children)) {
                 return false
             }
-            node=node.children[char]
+            node = node.children[char]
         }
         return node.endOfWord
     }
 
-    autoComplete(prefix){
-        let node=this.root
-        for(let char of prefix){
-            if(!(char in node.children)){
+    autoComplete(prefix) {
+        let node = this.root
+        for (let char of prefix) {
+            if (!(char in node.children)) {
                 return false
             }
-            node=node.children[char]
+            node = node.children[char]
         }
-        let words=[]
-        this.dfs(node,prefix,words)
+        let words = []
+        this.dfs(node, prefix, words)
         return words
-       }
-       dfs(node,prefix,words){
-        if(node.endOfWord){
+    }
+
+    dfs(node, prefix, words) {
+        if (node.endOfWord) {
             words.push(prefix)
         }
-        for(let char in node.children){
-            this.dfs(node.children[char],prefix+char,words)
+        for (let char in node.children) {
+            this.dfs(node.children[char], prefix + char, words)
         }
-       }
+    }
 
-       countWord(){
+
+    countWord() {
         return this.helper(this.root)
     }
-    helper(node){
-        let count=0
-        if(node.endOfWord){
+    helper(node) {
+        let count = 0
+        if (node.endOfWord) {
             count++
         }
-        for(let char in node.children){
-            count+=this.helper(node.children[char])
+        for (let char in node.children) {
+            count += this.helper(node.children[char])
         }
         return count
     }
+    
 }
-const trie=new Trie()
+const trie = new Trie()
 trie.insert('Apple')
 trie.insert('Ape')
 trie.insert('Cat')
