@@ -76,7 +76,6 @@ class Trie {
         }
     }
 
-
     countWord() {
         return this.helper(this.root)
     }
@@ -90,7 +89,7 @@ class Trie {
         }
         return count
     }
-    
+
 }
 const trie = new Trie()
 trie.insert('Apple')
