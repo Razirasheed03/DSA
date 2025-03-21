@@ -25,6 +25,15 @@ class Graph{
         this.adjList[vertex1].delete(vertex2)
         this.adjList[vertex2].delete(vertex1)
     }
+    removeVertax(vertex){
+        if(!this.adjList[vertex]){
+            return
+        }
+        for(let val in this.adjList[vertex]){
+            this.removeEdge(vertex,val)
+        }
+        delete this.adjList[vertex]
+    }
 
 }
 const graph=new Graph()
