@@ -21,6 +21,10 @@ class Graph{
     hasEdge(vertex1,vertex2){
         return (this.adjList[vertex1].has(vertex2)&&this.adjList[vertex2].has(vertex1))
     }
+    removeEdge(vertex1,vertex2){
+        this.adjList[vertex1].delete(vertex2)
+        this.adjList[vertex2].delete(vertex1)
+    }
 
 }
 const graph=new Graph()
