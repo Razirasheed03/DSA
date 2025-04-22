@@ -11,23 +11,24 @@ function factorial(n) {
 
   //==============Recursive Binary Search===============//
   
-function recursiveBinarySearch(array, target) {
-    return search(array, target, 0, array.length - 1);
-  }
-  function search(array, target, leftIndex, rightIndex) {
-    if (leftIndex > rightIndex) {
-      return -1;
+  function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
+    if (left > right) {
+      return null; // base case: target not found
     }
-    let middleIndex = Math.floor((leftIndex + rightIndex) / 2);
-    if (target === array[middleIndex]) {
-      return middleIndex;
-    }
-    if (target < array[middleIndex]) {
-      return search(array, target, leftIndex, middleIndex - 1);
+  
+    let mid = Math.floor((left + right) / 2);
+  
+    if (arr[mid] === target) {
+      return mid; // target found
+    } else if (arr[mid] < target) {
+      // search in right half
+      return binarySearchRecursive(arr, target, mid + 1, right);
     } else {
-      return search(array, target, middleIndex + 1, rightIndex);
+      // search in left half
+      return binarySearchRecursive(arr, target, left, mid - 1);
     }
   }
+  
   
   console.log(recursiveBinarySearch([-5, 2, 4, 6, 10], 10));
   console.log(recursiveBinarySearch([-5, 2, 4, 6, 10], 6));
