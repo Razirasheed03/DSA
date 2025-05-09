@@ -35,6 +35,16 @@ class Graph {
         delete this.adjList[vertex]
     }
 
+    dfs(start, visited = new Set()) {
+        if (visited.has(start)) return
+        console.log(start)
+        visited.add(start)
+        if (this.adjList[start]) {
+            for (let val of this.adjList[start]) {
+                this.dfs(val, visited)
+            }
+        }
+    }
 
 }
 const graph = new Graph()
