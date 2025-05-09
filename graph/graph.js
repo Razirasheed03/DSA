@@ -46,16 +46,16 @@ class Graph {
         }
     }
 
-    bfs(start){
+    bfs(start) {
         let queue = [start];
         let visited = new Set();
         let results = []
         visited.add(start)
-        while(queue.length){
+        while (queue.length) {
             let curr = queue.shift();
             results.push(curr);
-            for(let item of this.adjusantList[curr]){
-                if(!visited.has(item)){
+            for (let item of this.adjusantList[curr]) {
+                if (!visited.has(item)) {
                     visited.add(item);
                     queue.push(item);
                 }
