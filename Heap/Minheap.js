@@ -32,7 +32,30 @@ class MinHeap {
             }
         }
     }
-
+    extractMin() {
+        if (this.heap.length === 0) return null
+        if (this.heap.length === 1) return this.heap.pop()
+        let min = this.heap[0]
+        this.heap[0] = this.heap.pop()
+        this.heapifyDown(0)
+        return min
+    }
+    heapifyDown(i) {
+        let n = this.heap.length    
+        let smallest = i
+        let left = this.getLeftI(i)
+        let right = this.getRightI(i)
+        if (left < n && this.heap[left] < this.heap[smallest]) {
+            smallest = left
+        }
+        if (right < n && this.heap[right] < this.heap[smallest]) {
+            smallest = right
+        }
+        if (smallest !== i) {
+            [this.heap[i], this.heap[smallest]] = [this.heap[smallest], this.heap[i]]
+            this.heapifyDown(smallest)
+        }
+    }
     peek() {
         return this.heap.length > 0 ? this.heap[0] : null
     }
@@ -47,5 +70,5 @@ heap.insert(8);
 heap.insert(2);
 console.log(heap.heap);
 console.log(heap.peek());
-// console.log(heap.extractMin());
+console.log(heap.extractMin());
 console.log(heap.peek());
