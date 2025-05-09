@@ -32,7 +32,7 @@ class MinHeap {
             }
         }
     }
-   
+
     peek() {
         return this.heap.length > 0 ? this.heap[0] : null
     }
