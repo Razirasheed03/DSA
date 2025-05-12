@@ -41,7 +41,7 @@ class MinHeap {
         return min
     }
     heapifyDown(i) {
-        let n = this.heap.length    
+        let n = this.heap.length
         let smallest = i
         let left = this.getLeftI(i)
         let right = this.getRightI(i)
