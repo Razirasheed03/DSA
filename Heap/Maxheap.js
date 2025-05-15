@@ -14,7 +14,7 @@ class MaxHeap {
     swap(index1, index2) {
         [this.heap[index1], this.heap[index2]] = [this.heap[index2], this.heap[index1]];
     }
-    // In insertion we need both insert and heapifyUp.
+  
     insert(value) {
         this.heap.push(value);
         this.heapifyUp();
