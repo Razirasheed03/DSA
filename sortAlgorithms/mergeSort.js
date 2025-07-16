@@ -2,7 +2,7 @@ function mergedSort(array) {
     if (array.length < 2) {
       return array;
     }
-    let mid = array.length / 2;
+    let mid = Math.floor(array.length / 2)
     let leftArray = array.slice(0, mid);
     let rightArray = array.slice(mid);
     return join(mergedSort(leftArray), mergedSort(rightArray));
