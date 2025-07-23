@@ -84,14 +84,14 @@ class bst {
         }
     }
 
-    isBST(root, min = -Infinity, max = Infinity) {
+    isBst(root, min = -Infinity, max = Infinity) {
         if (!root) {
-            return true;
+            return true
         }
         if (root.value >= max || root.value <= min) {
-            return false;
+            return false
         }
-        return (this.isBST(root.left, min, root.value) && this.isBST(root.right, root.value))
+        return (this.isBst(root.left, min, root.value) && this.isBst(root.right, max, root.value))
     }
 
     findClosest(target) {
