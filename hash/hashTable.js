@@ -1,8 +1,8 @@
 class HashTable {
- constructor(size = 10) {
-  this.size=size
-        this.table = new Array(size);
-    }
+  constructor(size = 10) {
+    this.size = size
+    this.table = new Array(size);
+  }
 
   hash(key) {
     key = key.toString();
@@ -13,19 +13,19 @@ class HashTable {
     return value;
   }
 
-set(key, value) {
-  const index = this.hash(key);
-  if (!this.table[index]) this.table[index] = [];
-  let table = this.table[index];
-  for (let i = 0; i < table.length; i++) {
-    const [storedKey] = table[i];
-    if (storedKey == key) {
-      table[i] = [key, value];
-      return;
+  set(key, value) {
+    const index = this.hash(key);
+    if (!this.table[index]) this.table[index] = [];
+    let table = this.table[index];
+    for (let i = 0; i < table.length; i++) {
+      const [storedKey] = table[i];
+      if (storedKey == key) {
+        table[i] = [key, value];
+        return;
+      }
     }
+    table.push([key, value]);
   }
-  table.push([key, value]);
-}
 
 
   get(key) {
