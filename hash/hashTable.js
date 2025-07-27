@@ -1,8 +1,8 @@
 class HashTable {
-  constructor(size) {
-    this.size = size;
-    this.bucket = new Array(size).fill(null).map(() => []);
-  }
+ constructor(size = 10) {
+  this.size=size
+        this.table = new Array(size);
+    }
 
   hash(key) {
     key = key.toString();
@@ -15,22 +15,22 @@ class HashTable {
 
   set(key, value) {
     const index = this.hash(key);
-    let bucket = this.bucket[index];
-    for (let i = 0; i < bucket.length; i++) {
-      const [storedKey] = bucket[i];
+    let table = this.table[index];
+    for (let i = 0; i < table.length; i++) {
+      const [storedKey] = table[i];
       if (storedKey == key) {
-        bucket[i] = [key, value];
+        table[i] = [key, value];
         return;
       }
     }
-    bucket.push([key, value]);
+    table.push([key, value]);
   }
 
   get(key) {
     const index = this.hash(key);
-    let bucket = this.bucket[index];
-    for (let i = 0; i < bucket.length; i++) {
-      const [storedKey, storedValue] = bucket[i];
+    let table = this.table[index];
+    for (let i = 0; i < table.length; i++) {
+      const [storedKey, storedValue] = table[i];
       if (key === storedKey) {
         return storedValue;
       }
@@ -40,26 +40,26 @@ class HashTable {
 
   remove(key) {
     const index = this.hash(key);
-    let bucket = this.bucket[index];
-    for (let i = 0; i < bucket.length; i++) {
-      const [storedKey, storedValue] = bucket[i];
+    let table = this.table[index];
+    for (let i = 0; i < table.length; i++) {
+      const [storedKey, storedValue] = table[i];
       if (key === storedKey) {
-        bucket.splice(i, 1);
+        table.splice(i, 1);
         return;
       }
     }
   }
 
   clear() {
-    for (let i = 0; i < this.bucket.length; i++) {
-      this.bucket[i] = [];
+    for (let i = 0; i < this.table.length; i++) {
+      this.table[i] = [];
     }
   }
   containsValue(value) {
-    for (let i = 0; i < this.bucket.length; i++) {
-      const bucket = this.bucket[i];
-      for (let j = 0; j < bucket.length; j++) {
-        const [, storedValue] = bucket[j];
+    for (let i = 0; i < this.table.length; i++) {
+      const table = this.table[i];
+      for (let j = 0; j < table.length; j++) {
+        const [, storedValue] = table[j];
         if (storedValue === value) {
           return true;
         }
@@ -70,9 +70,9 @@ class HashTable {
 
   containsKey(key) {
     const index = this.hash(key);
-    const bucket = this.bucket[index];
-    for (let i = 0; i < bucket.length; i++) {
-      const [storedKey] = bucket[i];
+    const table = this.table[index];
+    for (let i = 0; i < table.length; i++) {
+      const [storedKey] = table[i];
       if (key === storedKey) {
         return true;
       }
@@ -82,10 +82,10 @@ class HashTable {
 
   key() {
     let allKey = [];
-    for (let i = 0; i < this.bucket.length; i++) {
-      const bucket = this.bucket[i];
-      for (let j = 0; j < bucket.length; j++) {
-        const [storedKey] = bucket[j];
+    for (let i = 0; i < this.table.length; i++) {
+      const table = this.table[i];
+      for (let j = 0; j < table.length; j++) {
+        const [storedKey] = table[j];
         allKey.push(storedKey);
       }
     }
@@ -94,10 +94,10 @@ class HashTable {
 
   value() {
     let allValue = [];
-    for (let i = 0; i < this.bucket.length; i++) {
-      const bucket = this.bucket[i];
-      for (let j = 0; j < bucket.length; j++) {
-        const [, storedValue] = bucket[j];
+    for (let i = 0; i < this.table.length; i++) {
+      const table = this.table[i];
+      for (let j = 0; j < table.length; j++) {
+        const [, storedValue] = table[j];
         allValue.push(storedValue);
       }
     }
@@ -107,9 +107,9 @@ class HashTable {
     this.count = 0;
     let oldTable = this.table
     this.table = new Array(this.table.length * 2)
-    for (let bucket of oldTable) {
-      if (bucket) {
-        for (let [key, value] of bucket) {
+    for (let table of oldTable) {
+      if (table) {
+        for (let [key, value] of table) {
           this.set(key, value)
         }
       }
@@ -118,9 +118,9 @@ class HashTable {
   }
 
   print() {
-    for (let i = 0; i < this.bucket.length; i++) {
-      if (this.bucket[i].length > 0) {
-        console.log(i, this.bucket[i]);
+    for (let i = 0; i < this.table.length; i++) {
+      if (this.table[i].length > 0) {
+        console.log(i, this.table[i]);
       }
     }
   }
@@ -137,4 +137,4 @@ hash.remove("name");
 // console.log(hash.key());
 // console.log(hash.value());
 
-console.log(hash.bucket);
+console.log(hash.table);
