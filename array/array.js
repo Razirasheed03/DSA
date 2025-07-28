@@ -185,3 +185,12 @@ for (let i = 1; i < str.length; i++) {
 console.log(result)
 
 
+//////////reversing without built in method
+
+const arr=[1,2,3,4,5]
+
+for(let i=0;i<arr.length/2;i++){
+    let j=arr.length-1-i;
+    [arr[i],arr[j]]=[arr[j],arr[i]]
+}
+console.log(arr)
