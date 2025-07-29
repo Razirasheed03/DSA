@@ -65,3 +65,20 @@ function recSum(arr){
   }
 }
 console.log(recSum([1,2,3,4,5]))
+
+
+function PrintFib(n){
+    let a = 0;
+    let b = 1;
+    console.log(a)
+    if(n>1){
+        console.log(b)
+    }
+    for(let i=2;i<n;i++){
+        let next=a+b;
+        console.log(next)
+        a=b;
+        b=next
+    }
+}
+PrintFib(10)
