@@ -10,14 +10,14 @@
 
 
 //   //==============Recursive Binary Search===============//
-  
+
 //   function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
 //     if (left > right) {
 //       return null; // base case: target not found
 //     }
-  
+
 //     let mid = Math.floor((left + right) / 2);
-  
+
 //     if (arr[mid] === target) {
 //       return mid; // target found
 //     } else if (arr[mid] < target) {
@@ -28,15 +28,15 @@
 //       return binarySearchRecursive(arr, target, left, mid - 1);
 //     }
 //   }
-  
-  
+
+
 //   console.log(recursiveBinarySearch([-5, 2, 4, 6, 10], 10));
 //   console.log(recursiveBinarySearch([-5, 2, 4, 6, 10], 6));
 //   console.log(recursiveBinarySearch([-5, 2, 4, 6, 10], 20));
-  
+
 
 //   ////====recursive fibinocci======/////
-  
+
 //   function recFeb(n) {
 //     if (n < 2) {
 //       return n;
@@ -44,7 +44,7 @@
 //     return recFeb(n - 1) + recFeb(n - 2);
 //   }
 //   console.log(recFeb(8));
-  
+
 
 //   ///////===========string reverse using recursion=========////////////
 
@@ -57,28 +57,30 @@
 
 //////////=========sum of array using recursion ============////////
 
-function recSum(arr){
-  if(arr.length){
-    return arr[0]+recSum(arr.slice(1))
-  }else{
+function recSum(arr) {
+  if (arr.length) {
+    return arr[0] + recSum(arr.slice(1))
+  } else {
     return 0
   }
 }
-console.log(recSum([1,2,3,4,5]))
+console.log(recSum([1, 2, 3, 4, 5]))
 
 
-function PrintFib(n){
-    let a = 0;
-    let b = 1;
-    console.log(a)
-    if(n>1){
-        console.log(b)
-    }
-    for(let i=2;i<n;i++){
-        let next=a+b;
-        console.log(next)
-        a=b;
-        b=next
-    }
+/////////fibinocci without recursion
+
+function PrintFib(n) {
+  let a = 0;
+  let b = 1;
+  console.log(a)
+  if (n > 1) {
+    console.log(b)
+  }
+  for (let i = 2; i < n; i++) {
+    let next = a + b;
+    console.log(next)
+    a = b;
+    b = next
+  }
 }
 PrintFib(10)
